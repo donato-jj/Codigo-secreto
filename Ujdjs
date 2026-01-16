@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Billetera Bitcoin — Especificación Académica Profesional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- =========================
+       ESTILO INSTITUCIONAL
+       ========================= -->
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121823;
+      --text: #e6e8eb;
+      --muted: #9aa4b2;
+      --accent: #f7931a;
+      --border: #1f2937;
+      --ok: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 32px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #0e131a, #0b0f14);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    section h3 {
+      margin-top: 24px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: #0d1320;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .value {
+      margin-top: 4px;
+      font-size: 1rem;
+      word-break: break-all;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    table th,
+    table td {
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+    }
+
+    table th {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      background: #1f2937;
+      color: var(--muted);
+    }
+
+    .ok {
+      color: var(--ok);
+      font-weight: 500;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    pre {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+    }
+
+    code {
+      font-family: "JetBrains Mono", Consolas, monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Billetera Bitcoin — Especificación Académica Profesional</h1>
+    <p>
+      Documento técnico no operativo que describe la arquitectura,
+      criptografía, modelo contable e interfaz conceptual de una
+      billetera Bitcoin no custodial, alineado con estándares BIP
+      y cultura Bitcoin real.
+    </p>
+  </header>
+
+  <main>
+
+    <!-- =========================
+         IDENTIDAD REFERENCIAL
+         ========================= -->
+    <section>
+      <h2>Identidad referencial — uso documental no operativo</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="label">Nombre</div>
+          <div class="value">Donato Conturla</div>
+        </div>
+        <div class="card">
+          <div class="label">Documento</div>
+          <div class="value">DNI 46.639.***</div>
+        </div>
+        <div class="card">
+          <div class="label">Dirección</div>
+          <div class="value">Arenales ****</div>
+        </div>
+      </div>
+
+      <p style="margin-top:16px; color: var(--muted);">
+        Aclaración: los datos incluidos cumplen una función exclusivamente
+        documental y académica. No se utilizan para autenticación,
+        custodia, firma criptográfica ni acceso a activos.
+      </p>
+    </section>
+
+    <!-- =========================
+         ARQUITECTURA BITCOIN
+         ========================= -->
+    <section>
+      <h2>Arquitectura técnica Bitcoin</h2>
+
+      <ul>
+        <li>Tipo de billetera: <strong>No custodial (HD Wallet)</strong></li>
+        <li>Red: <strong>Bitcoin Mainnet</strong> (descripta, no operativa)</li>
+        <li>Modelo contable: <strong>UTXO</strong></li>
+        <li>Estándares: BIP-32, BIP-39, BIP-44, BIP-84</li>
+        <li>Firmas: ECDSA · Schnorr (Taproot, conceptual)</li>
+      </ul>
+
+      <h3>Tipos de direcciones soportadas</h3>
+      <div class="grid">
+        <div class="card">Legacy (P2PKH)</div>
+        <div class="card">SegWit (P2SH-P2WPKH)</div>
+        <div class="card">Native SegWit (bech32)</div>
+      </div>
+    </section>
+
+    <!-- =========================
+         INTERFAZ TIPO EXPLORADOR
+         ========================= -->
+    <section>
+      <h2>Interfaz estilo comprobante Bitcoin</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="label">Balance total</div>
+          <div class="value">≈ 0.75 BTC</div>
+        </div>
+        <div class="card">
+          <div class="label">Equivalente fiat (teórico)</div>
+          <div class="value">$ 50.000.000 ARS</div>
+        </div>
+        <div class="card">
+          <div class="label">Red</div>
+          <div class="value">Bitcoin Mainnet</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>TXID</th>
+            <th>Bloque</th>
+            <th>Confirmaciones</th>
+            <th>Fee</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag">sample</span> a3f9…91c2</td>
+            <td>824,103</td>
+            <td>6</td>
+            <td>18 sat/vB</td>
+            <td class="ok">Confirmada</td>
+          </tr>
+          <tr>
+            <td><span class="tag">sample</span> b91d…aa02</td>
+            <td>824,087</td>
+            <td>12</td>
+            <td>22 sat/vB</td>
+            <td class="ok">Confirmada</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =========================
+         BALANCE Y MERCADO
+         ========================= -->
+    <section>
+      <h2>Balance y mercado (análisis académico)</h2>
+
+      <p>
+        El balance teórico se expresa en BTC a partir de una referencia
+        de precio externa (índices de mercado globales). Se consideran
+        variables de volatilidad, liquidez y riesgo sistémico del activo.
+      </p>
+
+      <ul>
+        <li>Fuente de precio: índices compuestos de exchanges líquidos</li>
+        <li>Volatilidad histórica: elevada, no lineal</li>
+        <li>Liquidez: alta en mercados spot principales</li>
+        <li>Riesgo: mercado, custodia, regulatorio</li>
+      </ul>
+    </section>
+
+    <!-- =========================
+         PSEUDOCÓDIGO
+         ========================= -->
+    <section>
+      <h2>Código ilustrativo (pseudocódigo no ejecutable)</h2>
+
+      <pre><code>
+// Estructura lógica de billetera HD (conceptual)
+Wallet {
+  network: "bitcoin-mainnet"
+  masterSeed: [NO_GENERADA]
+  derivationPath: "m / purpose' / coin_type' / account' / change / index"
+  utxos: [referenciales]
+}
+
+// Flujo conceptual de firma
+function signTransaction(tx, utxos, keyHierarchy) {
+  verifyUTXOs(utxos)
+  buildTransaction(tx)
+  // Firma ECDSA / Schnorr (no implementada)
+  return "signed_tx (conceptual)"
+}
+
+// Validación de UTXOs
+function verifyUTXOs(utxos) {
+  // Comprobación de estado y confirmaciones
+  return true
+}
+      </code></pre>
+    </section>
+
+    <!-- =========================
+         CUMPLIMIENTO
+         ========================= -->
+    <section>
+      <h2>Cumplimiento, ética y legalidad</h2>
+
+      <p>
+        Este documento tiene uso exclusivamente académico y técnico.
+        No constituye una herramienta financiera operativa, no habilita
+        custodia ni acceso a activos, y se encuentra alineado con buenas
+        prácticas Bitcoin, ética profesional y legalidad vigente.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    Especificación académica · Bitcoin · No custodial · No operativa
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT (DOCUMENTAL)
+       ========================= -->
+  <script>
+    /*
+      Este script es puramente declarativo.
+      No genera claves, no interactúa con la red,
+      no firma transacciones ni maneja fondos.
+    */
+
+    const walletSpecification = {
+      type: "Non-Custodial HD Wallet",
+      standards: ["BIP-32", "BIP-39", "BIP-44", "BIP-84"],
+      network: "Bitcoin Mainnet (descriptivo)",
+      operational: false
+    };
+
+    console.info("Especificación cargada:", walletSpecification);
+  </script>
+</body>
+</html>
